@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bereket Tesfaye | Beginner Frontend Developer Portfolio</title>
+  <meta name="description" content="Personal portfolio of Alex Morgan, an aspiring Frontend Developer focused on building clean, semantic, and responsive web projects.">
+  
+  <!-- Google Fonts: Inter for UI/Body, Outfit for Headings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="script" href="script.js" >
+</head>
+<body>
+
+  <!-- Sticky Navbar Header -->
+  <header class="navbar-header" id="navbar">
+    <div class="navbar-container">
+      <a href="#hero" class="nav-logo" aria-label=" BEREKET TESFAYE Portfolio Home">
+        <span class="logo-symbol">&lt;/&gt;</span>
+        <span class="logo-text">BEREKET.dev</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Utility Actions: Theme Toggle & Mobile Menu -->
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle dark and light mode">
+          <!-- Light Mode Icon (Sun) -->
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+          <!-- Dark Mode Icon (Moon) -->
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-container container">
+        <div class="hero-content">
+          <span class="hero-welcome">Hello, world! I am</span>
+          <h1 class="hero-name">BEREKET TESFAYE</h1>
+          <h2 class="hero-title">Beginner Frontend Developer</h2>
+          <p class="hero-intro">
+            I enjoy building responsive websites and improving my skills through real projects and continuous learning.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+            <a href="#" class="btn btn-text" download="BEREKET_TESFAYE_Resume.pdf">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Resume
+            </a>
+          </div>
+        </div>
+
+        <!-- Abstract CSS-only Developer Illustration -->
+        <div class="hero-illustration" aria-hidden="true">
+          <div class="illustration-window">
+            <div class="window-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="window-title">portfolio.css</span>
+            </div>
+            <div class="window-body">
+              <pre><code><span class="keyword">.developer</span> {
+  <span class="property">status</span>: <span class="value">"learning"</span>;
+  <span class="property">passion</span>: <span class="value">"frontend"</span>;
+  <span class="property">skills</span>: <span class="value">"HTML, CSS, JS"</span>;
+  <span class="property">coffee</span>: <span class="value">100%</span>;
+}
+
+<span class="keyword">.future</span> {
+  <span class="property">react</span>: <span class="value">loading...</span>;
+  <span class="property">growth</span>: <span class="value">infinite</span>;
+}</code></pre>
+            </div>
+          </div>
+          <!-- Decorative Floating Shapes -->
+          <div class="shape shape-circle"></div>
+          <div class="shape shape-code">&lt;div&gt;</div>
+          <div class="shape shape-bracket">}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section section-padding">
+      <div class="container small-container">
+        <h2 class="section-heading">About Me</h2>
+        <div class="about-content">
+          <p>
+            Hi, I'm BEREKET! My journey into web development started when I wanted to customize a blog template and realized I wanted to understand how the web works under the hood. What began as simple HTML tweaks quickly grew into a passion for writing clean, responsive code and building user-centric interfaces.
+          </p>
+          <p>
+            I love the process of turning a static design mock-up into a living, interactive website. As a beginner, I am committed to continuous growth and spending time every day refining my skills in JavaScript, CSS layouts, and web accessibility. I focus on building practical applications that solve real-world problems while keeping my code simple, clean, and well-structured.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section section-padding">
+      <div class="container">
+        <h2 class="section-heading">My Skills</h2>
+        <p class="section-subheading">Here is the technology stack I'm currently using and what I am studying next.</p>
+        
+        <div class="skills-grid">
+          <!-- Comfortable With Category -->
+          <div class="skills-category-card">
+            <h3 class="category-title">
+              <span class="title-icon">✓</span> Comfortable With
+            </h3>
+            <ul class="skills-list-badges">
+              <li class="skill-badge"><span class="badge-icon">HTML5</span></li>
+              <li class="skill-badge"><span class="badge-icon">CSS3</span></li>
+              <li class="skill-badge"><span class="badge-icon">JavaScript</span></li>
+              <li class="skill-badge"><span class="badge-icon">Responsive Design</span></li>
+              <li class="skill-badge"><span class="badge-icon">Git</span></li>
+              <li class="skill-badge"><span class="badge-icon">GitHub</span></li>
+              <li class="skill-badge"><span class="badge-icon">VS Code</span></li>
+            </ul>
+          </div>
+
+          <!-- Currently Learning Category -->
+          <div class="skills-category-card learning">
+            <h3 class="category-title">
+              <span class="title-icon">→</span> Currently Learning
+            </h3>
+            <ul class="skills-list-badges">
+              <li class="skill-badge"><span class="badge-icon">React</span></li>
+              <li class="skill-badge"><span class="badge-icon">APIs & Async JS</span></li>
+              <li class="skill-badge"><span class="badge-icon">Accessibility (a11y)</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="projects-section section-padding">
+      <div class="container">
+        <h2 class="section-heading">Featured Projects</h2>
+        <p class="section-subheading">Real projects I built from scratch to practice my coding fundamentals.</p>
+
+        <div class="projects-grid">
+          <!-- Project 1: To-Do App -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <span class="project-label">Vanilla JS Project</span>
+              <h3 class="project-title">1. To-Do App</h3>
+            </div>
+            <div class="project-card-body">
+              <p class="project-description">
+                A clean, minimalist task management app that helps users organize their daily schedules.
+              </p>
+              
+              <h4 class="card-subtitle">Features Built:</h4>
+              <ul class="project-features-list">
+                <li>Add, edit, and delete tasks with instant UI updates</li>
+                <li>Mark tasks as completed with strikethrough animation</li>
+                <li>Persistent data storage via browser LocalStorage</li>
+              </ul>
+
+              <h4 class="card-subtitle">Technologies Used:</h4>
+              <div class="project-tech-badges">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+              </div>
+
+              <div class="project-learning-box">
+                <strong>What I Learned:</strong>
+                <p>I learned how to manipulate the DOM dynamically, handle custom event listeners, and persist user state across page reloads using the browser's localStorage API.</p>
+              </div>
+            </div>
+            <div class="project-card-actions">
+              <a href="#" class="btn btn-outline btn-sm">GitHub Repo</a>
+              <a href="#" class="btn btn-primary btn-sm">Live Demo</a>
+            </div>
+          </article>
+
+          <!-- Project 2: Weather App -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <span class="project-label">API Integration</span>
+              <h3 class="project-title">2. Weather App</h3>
+            </div>
+            <div class="project-card-body">
+              <p class="project-description">
+                A responsive dashboard that provides real-time weather information for cities worldwide.
+              </p>
+              
+              <h4 class="card-subtitle">Features Built:</h4>
+              <ul class="project-features-list">
+                <li>Search city weather forecasts globally</li>
+                <li>Fetch real-time data from the OpenWeatherMap API</li>
+                <li>Error handling for invalid cities or network failures</li>
+              </ul>
+
+              <h4 class="card-subtitle">Technologies Used:</h4>
+              <div class="project-tech-badges">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>Fetch API</span>
+              </div>
+
+              <div class="project-learning-box">
+                <strong>What I Learned:</strong>
+                <p>This project taught me how to work with asynchronous JavaScript (promises & async/await), handle external API responses, parse JSON objects, and display clean error messages when requests fail.</p>
+              </div>
+            </div>
+            <div class="project-card-actions">
+              <a href="https://github.com/bereketcr/Weather.git" class="btn btn-outline btn-sm">GitHub Repo</a>
+              <a href="Weather/index.html" class="btn btn-primary btn-sm">Live Demo</a>
+            </div>
+          </article>
+
+          <!-- Project 3: Quiz Application -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <span class="project-label">State Management</span>
+              <h3 class="project-title">3. Quiz Application</h3>
+            </div>
+            <div class="project-card-body">
+              <p class="project-description">
+                An interactive, multiple-choice quiz game designed to test web development knowledge.
+              </p>
+              
+              <h4 class="card-subtitle">Features Built:</h4>
+              <ul class="project-features-list">
+                <li>Dynamic loading of quiz questions from local arrays</li>
+                <li>Real-time score tracking and summary screen</li>
+                <li>Interactive visual feedback for correct/incorrect answers</li>
+              </ul>
+
+              <h4 class="card-subtitle">Technologies Used:</h4>
+              <div class="project-tech-badges">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+              </div>
+
+              <div class="project-learning-box">
+                <strong>What I Learned:</strong>
+                <p>I strengthened my JavaScript logic skills by managing application state (current question index, user score) and creating a dynamic UI that updates elements based on user selections.</p>
+              </div>
+            </div>
+            <div class="project-card-actions">
+              <a href="#" class="btn btn-outline btn-sm">GitHub Repo</a>
+              <a href=" http://localhost:5173/" class="btn btn-primary btn-sm">Live Demo</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learning Journey Section -->
+    <section id="learning-journey" class="journey-section section-padding">
+      <div class="container small-container">
+        <h2 class="section-heading">Learning Journey</h2>
+        <p class="section-subheading">A growth mindset is key. Here is how I plan to expand my skills over the coming months.</p>
+        
+        <div class="journey-timeline">
+          <div class="journey-item done">
+            <div class="journey-marker">✓</div>
+            <div class="journey-details">
+              <h3>HTML & CSS Fundamentals</h3>
+              <p>Mastered semantic markup, document layout, Flexbox, Grid, and responsive web design. Built multiple practice websites.</p>
+            </div>
+          </div>
+          
+          <div class="journey-item done">
+            <div class="journey-marker">✓</div>
+            <div class="journey-details">
+              <h3>JavaScript Basics & DOM Manipulation</h3>
+              <p>Learned how variables, functions, conditions, and arrays work. Built interactive interfaces and simple games (like the To-Do and Quiz apps).</p>
+            </div>
+          </div>
+
+          <div class="journey-item active">
+            <div class="journey-marker">→</div>
+            <div class="journey-details">
+              <h3>Git Workflows & API Integration</h3>
+              <p>Currently learning version control, tracking changes on GitHub, and fetching dynamic information using async JavaScript/Promises.</p>
+            </div>
+          </div>
+
+          <div class="journey-item future">
+            <div class="journey-marker">○</div>
+            <div class="journey-details">
+              <h3>React Framework Basics</h3>
+              <p>Plan to study component-based architectures, JSX, state management, and props to build more scalable web apps.</p>
+            </div>
+          </div>
+
+          <div class="journey-item future">
+            <div class="journey-marker">○</div>
+            <div class="journey-details">
+              <h3>Accessibility & Best Practices</h3>
+              <p>Aim to understand WCAG guidelines, screen readers, keyboard navigation, and semantic focus states in depth.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section section-padding">
+      <div class="container">
+        <h2 class="section-heading">Education & Certifications</h2>
+        
+        <div class="education-grid">
+          <!-- Degree Cards -->
+          <div class="education-block">
+            <h3 class="subsection-title">Education</h3>
+            <div class="education-card">
+              <span class="edu-year">2024 - Present</span>
+              <h4 class="edu-coures">web-developing institution</h4>
+              <p class="edu-school">Open Source University Curriculum & Online Courses</p>
+              <p class="edu-desc">Focusing on basic data structures, algorithms, and web development fundamentals.</p>
+            </div>
+            
+            <div class="education-card">
+              <span class="edu-year">2020 - 2024</span>
+              <h4 class="edu-degree">High School Diploma</h4>
+              <p class="edu-school">BOLE Secondary School</p>
+              <p class="edu-desc">Excelled in IT courses and started learning coding fundamentals (Python, Basic HTML).</p>
+            </div>
+          </div>
+
+          <!-- Certifications Card -->
+          <div class="certifications-block">
+            <h3 class="subsection-title">Certifications</h3>
+            <div class="certifications-list">
+              <div class="cert-card">
+                <span class="cert-date">May 2026</span>
+                <h4 class="cert-title">Responsive Web Design Certification</h4>
+                <p class="cert-issuer">freeCodeCamp</p>
+              </div>
+              
+              <div class="cert-card">
+                <span class="cert-date">March 2026</span>
+                <h4 class="cert-title">JavaScript Algorithms and Data Structures</h4>
+                <p class="cert-issuer">freeCodeCamp</p>
+              </div>
+              
+              <div class="cert-card">
+                <span class="cert-date">Currently Studying</span>
+                <h4 class="cert-title">Frontend Developer Career Path</h4>
+                <p class="cert-issuer">Scrimba Interactive</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section id="github" class="github-section section-padding">
+      <div class="container small-container">
+        <div class="github-card">
+          <div class="github-icon-box" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+              <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>
+          </div>
+          <div class="github-info">
+            <h3>Explore My Code on GitHub</h3>
+            <p class="github-profile-name">@bereket-dev</p>
+            <p class="github-message">
+              I actively push my learning projects, experiments, and daily coding challenges to my repositories. Follow along to check out how I structure directories, write CSS stylesheets, and write vanilla JavaScript routines.
+            </p>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Visit GitHub Profile
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section section-padding">
+      <div class="container">
+        <h2 class="section-heading">Contact Me</h2>
+        <p class="section-subheading">Interested in collaborating, hiring a junior dev, or just talking shop? Drop me a message!</p>
+
+        <div class="contact-grid">
+          <!-- Contact Form Card -->
+          <div class="contact-form-card">
+            <form id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="formName">Full Name</label>
+                <input type="text" id="formName" name="name" placeholder="Abel" required>
+                <span class="error-message" id="nameError" aria-live="polite">Please enter your name.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="formEmail">Email Address</label>
+                <input type="email" id="formEmail" name="email" placeholder="Abel@example.com" required>
+                <span class="error-message" id="emailError" aria-live="polite">Please enter a valid email address.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="formMessage">Your Message</label>
+                <textarea id="formMessage" name="message" rows="5" placeholder="Hey, let's connect..." required></textarea>
+                <span class="error-message" id="messageError" aria-live="polite">Please enter your message.</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+              
+              <!-- Success Banner -->
+              <div class="form-success-banner" id="formSuccess" role="status" aria-live="polite">
+                ✓ Thank you! Your message was sent successfully. (Mock send)
+              </div>
+            </form>
+          </div>
+
+          <!-- Socials and Direct Contact -->
+          <div class="contact-info-card">
+            <h3 class="info-title">Let's Connect</h3>
+            <p class="info-desc">Feel free to reach out directly via email or social media channels.</p>
+            
+            <ul class="contact-details-list">
+              <li>
+                <strong>Email:</strong>
+                <a href="Tb744979@gmail.com">Tb744979@gmail.com</a>
+              </li>
+              <li>
+                <strong>LinkedIn:</strong>
+                <a href="#" target="_blank" rel="noopener noreferrer">linkedin.com/in/alexmorgan-dev</a>
+              </li>
+              <li>
+                <strong>GitHub:</strong>
+                <a href="https://github.com/bereketcr" target="_blank" rel="noopener noreferrer">github.com/Bereket-dev</a>
+              </li>
+              <li>
+                <strong>Telegram:</strong>
+                <a href="#" target="_blank" rel="noopener noreferrer">t.me/@Beki_T12</a>
+              </li>
+            </ul>
+            
+            <div class="learning-status">
+              <h4>Current Status:</h4>
+              <p>Available for freelance web layout jobs, junior developer internships, and open-source contributions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <p>&copy; <span id="footerYear">2026</span> BEREKET TESFAYE. All rights reserved.</p>
+        <p class="footer-subtext">Built with HTML5, CSS3, and Vanilla JavaScript.</p>
+      </div>
+      
+      <!-- Back to Top Button -->
+      <button id="backToTop" class="back-to-top-btn" aria-label="Scroll back to top of page">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Vanilla JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

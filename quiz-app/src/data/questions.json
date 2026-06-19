@@ -1,0 +1,84 @@
+[
+  {
+    "id": 1,
+    "category": "Science",
+    "difficulty": "Easy",
+    "question": "Which planet is known as the 'Red Planet'?",
+    "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+    "correctAnswerIndex": 1,
+    "explanation": "Mars is called the Red Planet because iron minerals in its soil rust, causing the soil and atmosphere to look red."
+  },
+  {
+    "id": 2,
+    "category": "Web Development",
+    "difficulty": "Medium",
+    "question": "What does HTML stand for?",
+    "options": [
+      "Hyper Text Markup Language",
+      "High Tech Modern Language",
+      "Hyperlink Transfer Markup Language",
+      "Home Tool Markup Language"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "HTML stands for Hyper Text Markup Language. It is the standard markup language for documents designed to be displayed in a web browser."
+  },
+  {
+    "id": 3,
+    "category": "Web Development",
+    "difficulty": "Easy",
+    "question": "In React, which hook is used to perform side effects in functional components?",
+    "options": ["useState", "useContext", "useEffect", "useReducer"],
+    "correctAnswerIndex": 2,
+    "explanation": "The useEffect Hook allows you to perform side effects (like data fetching, manual DOM manipulations, and subscriptions) in functional components."
+  },
+  {
+    "id": 4,
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "question": "How many colors are there in a standard rainbow?",
+    "options": ["5", "6", "7", "8"],
+    "correctAnswerIndex": 2,
+    "explanation": "A standard rainbow has 7 colors: Red, Orange, Yellow, Green, Blue, Indigo, and Violet."
+  },
+  {
+    "id": 5,
+    "category": "Science",
+    "difficulty": "Medium",
+    "question": "What is the chemical symbol for Gold?",
+    "options": ["Gd", "Go", "Ag", "Au"],
+    "correctAnswerIndex": 3,
+    "explanation": "The chemical symbol for Gold is Au, which comes from the Latin word for gold, 'aurum' (which means shining dawn)."
+  },
+  {
+    "id": 6,
+    "category": "Web Development",
+    "difficulty": "Medium",
+    "question": "Which of the following is NOT a JavaScript data type?",
+    "options": ["String", "Float", "Boolean", "Undefined"],
+    "correctAnswerIndex": 1,
+    "explanation": "JavaScript has a single 'Number' type for all numeric values, unlike other languages that distinguish between integers and floats."
+  },
+  {
+    "id": 7,
+    "category": "History",
+    "difficulty": "Hard",
+    "question": "Who was the first President of the United States?",
+    "options": ["Thomas Jefferson", "Abraham Lincoln", "George Washington", "John Adams"],
+    "correctAnswerIndex": 2,
+    "explanation": "George Washington served as the first President of the United States from 1789 to 1797."
+  },
+  {
+    "id": 8,
+    "category": "Science",
+    "difficulty": "Hard",
+    "question": "What is the approximate speed of light in a vacuum?",
+    "options": [
+      "300,000 km/s",
+      "150,000 km/s",
+      "1,000,000 km/s",
+      "50,000 km/s"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The speed of light in a vacuum is approximately 299,792 kilometers per second, which is commonly rounded to 300,000 km/s."
+  }
+]

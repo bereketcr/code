@@ -1,0 +1,588 @@
+/* ============================================================================
+   WEATHER APP - DESIGN SYSTEM (CSS VARIABLES & GLOBAL RESETS)
+   ============================================================================ */
+:root {
+    /* Background gradients and colors configured as CSS custom properties */
+    --bg-gradient: linear-gradient(135deg, #1f4068 0%, #162447 50%, #1b1a17 100%);
+    --card-bg: rgba(255, 255, 255, 0.08); /* Transparent glass card background */
+    --card-border: rgba(255, 255, 255, 0.12); /* Glass card border styling */
+    --text-color: #ffffff; /* Primary text color (white) */
+    --text-muted: #b0b5c0; /* Secondary muted text color */
+    --input-bg: rgba(255, 255, 255, 0.07); /* Search input background fill */
+    --btn-bg: #e43f5a; /* Primary search buttons theme color (crimson) */
+    --btn-hover: #ff4a68; /* Hover color for interactive buttons */
+    --error-bg: rgba(228, 63, 90, 0.15); /* Red warning notification background */
+    --error-border: rgba(228, 63, 90, 0.35); /* Red warning notification border */
+}
+
+/* Clear margins and padding default configurations */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body element wrapper setting font family and dynamic background shifts */
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    padding: 15px;
+    transition: background 0.8s ease; /* Smooth transition when weather shifts backgrounds */
+}
+
+/* Global button cursor and click properties */
+button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+/* ============================================================================
+   DYNAMIC WEATHER BACKGROUND STYLES
+   ============================================================================ */
+/* Active classes applied to body by JavaScript matching main conditions */
+body.weather-clear { background: linear-gradient(135deg, #e65c00 0%, #f9d423 100%); }
+body.weather-clouds { background: linear-gradient(135deg, #4b5563 0%, #1f2937 100%); }
+body.weather-rain { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
+body.weather-snow {
+    background: linear-gradient(135deg, #83a4d4 0%, #b6fbff 100%);
+    color: #333333; /* Dark font color to stand out on bright white background */
+}
+
+/* Override design system variables when in snow mode (light theme contrast) */
+body.weather-snow :root {
+    --text-color: #2c3e50;
+    --text-muted: #555555;
+    --card-bg: rgba(255, 255, 255, 0.3);
+    --card-border: rgba(255, 255, 255, 0.5);
+    --input-bg: rgba(255, 255, 255, 0.25);
+}
+
+/* Set darker text colors on card items when snow background is loaded */
+body.weather-snow .detail-item, 
+body.weather-snow .forecast-card, 
+body.weather-snow .hourly-item, 
+body.weather-snow .weather-quote,
+body.weather-snow .weather-main-panel,
+body.weather-snow .daylight-progress-section,
+body.weather-snow .hourly-section,
+body.weather-snow .forecast-section {
+    background: rgba(255, 255, 255, 0.25);
+    color: #2c3e50;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Darken interactive state texts for contrast */
+body.weather-snow #city-input,
+body.weather-snow .history-badge,
+body.weather-snow .unit-toggle-btn,
+body.weather-snow .favorite-badge {
+    color: #2c3e50;
+}
+
+body.weather-snow #city-input::placeholder { color: #666666; }
+
+/* ============================================================================
+   LAYOUT COMPONENTS (Containers, Headers, Search Fields)
+   ============================================================================ */
+/* Main container card styling with backdrop blur glassmorphism */
+.app-container {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 24px 20px;
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+    transition: max-width 0.5s ease, padding 0.5s ease;
+}
+
+/* Flexbox header containing title and toggle buttons */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+/* Toggle units button (Fahrenheit vs Celsius) */
+.unit-toggle-btn {
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+}
+
+.unit-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Search bar wrapper aligning input field, submit, and location trigger buttons */
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+/* City input text field */
+#city-input {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: 1px solid var(--card-border);
+    border-radius: 30px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#city-input::placeholder { color: var(--text-muted); }
+#city-input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Crimson search button */
+#search-btn {
+    padding: 12px 22px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+}
+
+#search-btn:hover {
+    background-color: var(--btn-hover);
+    transform: translateY(-1px);
+}
+
+/* Location detection GPS pin button */
+#location-btn {
+    padding: 12px 15px;
+    font-size: 1.1rem;
+    border: 1px solid var(--card-border);
+    border-radius: 30px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#location-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+/* ============================================================================
+   HISTORY & FAVORITES BADGES
+   ============================================================================ */
+/* Flex badge rows */
+.search-history, .favorites-list {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.search-history {
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* Recent search history pill badges */
+.history-badge, .favorite-badge {
+    font-size: 0.8rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.history-badge {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.history-badge:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Bookmarked favorites row wrapper */
+.favorites-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.favorites-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* Golden favorites badge styling */
+.favorite-badge {
+    background: rgba(245, 176, 65, 0.12);
+    border: 1px solid rgba(245, 176, 65, 0.25);
+    color: #f5b041;
+}
+
+.favorite-badge:hover {
+    background: rgba(245, 176, 65, 0.2);
+    border-color: rgba(245, 176, 65, 0.4);
+    transform: scale(1.05);
+}
+
+/* ERROR MESSAGE */
+.error-message {
+    background-color: var(--error-bg);
+    border: 1px solid var(--error-border);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease;
+}
+
+/* ============================================================================
+   WEATHER CARD STYLES & CHILD WIDGETS
+   ============================================================================ */
+.weather-card {
+    margin-top: 10px;
+    animation: fadeIn 0.6s ease-out;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* COLUMN 1: Current Weather main sidebar panel */
+.weather-main-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.city-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#city-name { font-size: 1.8rem; font-weight: 600; }
+
+/* Star favorite button outline/gold fills */
+.favorite-btn {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: #b0b5c0;
+}
+
+.favorite-btn.active {
+    color: #f5b041;
+    transform: scale(1.1);
+}
+
+.favorite-btn:hover { transform: scale(1.25); }
+.temp-container { margin: 10px 0 2px 0; }
+#temperature { font-size: 4.5rem; font-weight: 800; }
+#temp-unit { font-size: 1.8rem; vertical-align: super; font-weight: 600; }
+.feels-like-container { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 15px; }
+
+.description-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Floating micro-animation for weather illustration icons */
+#weather-icon {
+    width: 90px;
+    height: 90px;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+#weather-description {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    text-transform: capitalize;
+    margin-top: -10px;
+}
+
+/* Left-bordered blockquote for daily weather tip quote text */
+.weather-quote {
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.04);
+    border-left: 3px solid var(--btn-bg);
+    padding: 10px 15px;
+    border-radius: 0 8px 8px 0;
+    margin: 10px 0;
+    font-size: 0.9rem;
+    text-align: left;
+    color: var(--text-muted);
+}
+
+/* COLUMN 2 & 3: Stacking panels on mobile screen sizes */
+.weather-stats-panel, .weather-forecasts-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Secondary statistics 2x2 grid layout */
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 12px;
+    border-radius: 16px;
+}
+
+.detail-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 4px;
+}
+
+.detail-value { font-size: 1.1rem; font-weight: 600; }
+
+/* Daylight duration and timeline tracker progress */
+.daylight-progress-section { text-align: left; }
+.daylight-label-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.daylight-bar-container {
+    position: relative;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+/* Horizontal elapsed sunlight indicator fill bar */
+.daylight-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #f5af19, #f12711);
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Absolutely positioned sliding sun emoji indicator icon */
+.daylight-sun {
+    position: absolute;
+    top: -6px;
+    transform: translateX(-50%);
+    font-size: 1.1rem;
+    left: 0%;
+    transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.daylight-remaining {
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* SECTION TITLES */
+.hourly-section h3, .chart-section h3, .forecast-section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* Horizontal scroll containers for mobile viewports */
+.hourly-container, .forecast-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.hourly-container::-webkit-scrollbar, .forecast-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.hourly-container::-webkit-scrollbar-thumb, .forecast-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 3px;
+}
+
+/* DRY consolidated layout rules for hourly items and daily forecast cards */
+.hourly-item, .forecast-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 10px 5px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.hourly-item { flex: 0 0 65px; }
+.forecast-card { flex: 0 0 75px; }
+
+/* Unified hover scaling animation for scrollable timeline cards */
+.hourly-item:hover, .forecast-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.hourly-time, .forecast-day {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.hourly-icon, .forecast-icon { width: 32px; height: 32px; }
+.hourly-temp, .forecast-temp { font-size: 0.85rem; font-weight: 600; }
+
+/* Chart.js graph container layout rules */
+.chart-section { text-align: left; }
+.chart-wrapper {
+    position: relative;
+    height: 140px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 10px;
+}
+
+.hidden { display: none !important; }
+
+/* Animation fade-in logic when weather cards are rendered active */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================================
+   SIGNATURE BADGE / CREDIT BREADCRUMB
+   ============================================================================ */
+.footer-credit {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 25px; /* Separate signature from content */
+    font-weight: 500;
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+/* Hover effects for a premium interactive feel */
+.footer-credit:hover {
+    color: var(--btn-hover);
+    transform: scale(1.03);
+}
+
+/* ============================================================================
+   DESKTOP / PC HORIZONTAL GRID LAYOUT (min-width: 992px)
+   ============================================================================ */
+@media (min-width: 992px) {
+    /* Expand parent width to fit 3 horizontal columns */
+    .app-container {
+        max-width: 1120px;
+        padding: 30px;
+    }
+
+    /* Transform vertical layout list structure into 3 distinct dashboard columns */
+    .weather-card {
+        display: grid;
+        grid-template-columns: 1fr 1.15fr 1.85fr;
+        gap: 24px;
+        align-items: stretch;
+    }
+
+    /* Add shared glass panel borders for separated horizontal columns */
+    .weather-main-panel, .daylight-progress-section, .hourly-section, .chart-section, .forecast-section {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 16px 20px;
+    }
+
+    /* Column 1 sidebar centering properties */
+    .weather-main-panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+    }
+
+    /* Adjust sizing heights to fit cleanly within viewport margins */
+    .weather-stats-panel, .weather-forecasts-panel {
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .chart-wrapper {
+        height: 120px; /* Compress height to avoid page scrolling */
+        background: none;
+        border: none;
+        padding: 0;
+    }
+
+    /* Stretch 5-day forecast cards horizontally on desktop sizes, disabling scroll bars */
+    .forecast-container {
+        overflow: visible;
+        padding-bottom: 0;
+    }
+
+    .forecast-card {
+        flex: 1;
+    }
+}

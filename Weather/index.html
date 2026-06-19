@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Document Metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Weather Dashboard</title>
+    
+    <!-- Link to external stylesheet for application styling -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts for Outfit Typography styles (light, regular, bold, extra bold) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js CDN library script to draw line graph datasets on the canvas -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Main wrapper holding all layout components -->
+    <div class="app-container">
+        
+        <!-- Header container containing application title and metric toggle button -->
+        <div class="header">
+            <h1>Weather App</h1>
+            <button id="unit-toggle" class="unit-toggle-btn" title="Toggle °C / °F">°F</button>
+        </div>
+        
+        <!-- Search area allowing users to search cities manually or query current location -->
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off">
+            <button id="search-btn">Search</button>
+            <button id="location-btn" title="Use Current Location">📍</button>
+        </div>
+
+        <!-- Holds dynamically generated search history tag badges -->
+        <div id="search-history" class="search-history"></div>
+        
+        <!-- Holds dynamically generated favorite bookmarks badges -->
+        <div id="favorites-section" class="favorites-section hidden">
+            <span class="favorites-title">Favorites:</span>
+            <div id="favorites-list" class="favorites-list"></div>
+        </div>
+
+        <!-- Alert box shown when searches fail (hidden by default) -->
+        <div id="error-message" class="error-message hidden">
+            Oops, city not found! Please check the spelling.
+        </div>
+
+        <!-- Dashboard panel holding loaded meteorological analytics (hidden by default) -->
+        <div id="weather-card" class="weather-card hidden">
+            
+            <!-- COLUMN 1: Sidebar containing city name, current temperature details, and descriptive icons -->
+            <div class="weather-main-panel">
+                <!-- Header holding city info and favorites bookmark toggle -->
+                <div class="city-header">
+                    <h2 id="city-name">London, GB</h2>
+                    <button id="favorite-btn" class="favorite-btn" title="Save to Favorites">☆</button>
+                </div>
+                <!-- Displays the current temperature value -->
+                <div class="temp-container">
+                    <span id="temperature">20</span><span id="temp-unit">°C</span>
+                </div>
+                <!-- Displays the perceived temperature calculations -->
+                <div class="feels-like-container">
+                    Feels like: <span id="feels-like">18</span><span class="feels-like-unit">°C</span>
+                </div>
+                <!-- Icon and descriptive condition text -->
+                <div class="description-container">
+                    <img id="weather-icon" src="" alt="Weather Icon">
+                    <p id="weather-description">Clear Sky</p>
+                </div>
+                <!-- Dynamic text quote block based on conditions -->
+                <div id="weather-quote" class="weather-quote"></div>
+            </div>
+
+            <!-- COLUMN 2: Secondary statistics grid and daylight remaining timeline progress -->
+            <div class="weather-stats-panel">
+                <!-- 2x2 grid containing humidity, wind speed, sunrise, and sunset details -->
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Humidity</span>
+                        <span id="humidity" class="detail-value">50%</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Wind Speed</span>
+                        <span id="wind-speed" class="detail-value">5 m/s</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Sunrise</span>
+                        <span id="sunrise" class="detail-value">06:00 AM</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Sunset</span>
+                        <span id="sunset" class="detail-value">08:00 PM</span>
+                    </div>
+                </div>
+
+                <!-- Progress bar mapping elapsed daylight relative to current time -->
+                <div class="daylight-progress-section">
+                    <div class="daylight-label-row">
+                        <span id="daylight-sunrise-time">06:00 AM</span>
+                        <span id="daylight-sunset-time">08:00 PM</span>
+                    </div>
+                    <div class="daylight-bar-container">
+                        <div id="daylight-bar" class="daylight-bar"></div>
+                        <div id="daylight-sun" class="daylight-sun">☀️</div>
+                    </div>
+                    <div id="daylight-remaining" class="daylight-remaining"></div>
+                </div>
+            </div>
+
+            <!-- COLUMN 3: Hourly forecast scroll widgets, Chart.js trend canvas, and 5-Day forecast cards -->
+            <div class="weather-forecasts-panel">
+                <!-- Horizontal 3-hour interval scrolling forecast section -->
+                <div class="hourly-section">
+                    <h3>Hourly Forecast</h3>
+                    <div id="hourly-container" class="hourly-container"></div>
+                </div>
+
+                <!-- Canvas line graph plotting temperature trends -->
+                <div class="chart-section">
+                    <h3>Temperature Trend</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="temp-chart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Horizontal daily forecast scrolling section -->
+                <div class="forecast-section">
+                    <h3>5-Day Forecast</h3>
+                    <div id="forecast-container" class="forecast-container"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer credit signature badge showing application authorship -->
+        <div class="footer-credit">
+            Designed & Crafted with ❤️ by B
+        </div>
+
+    </div>
+
+    <!-- Core Javascript file orchestrating functionality -->
+    <script src="app.js"></script>
+</body>
+</html>
